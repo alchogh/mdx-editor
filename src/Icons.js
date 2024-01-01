@@ -15,72 +15,45 @@ function Icons({ textAreaValue, setTextAreaValue }) {
   return (
     <IconsContainer>
       <HTag>
-        <button onClick={handleChangeTextOption}>
-          <div className="hTagWrap">
-            <div className="hTitle">
-              H <span className="hNumber">1</span>
-            </div>
-          </div>
-        </button>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">
-              H <span className="hNumber">2</span>
-            </div>
-          </div>
-        </button>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">
-              H <span className="hNumber">3</span>
-            </div>
-          </div>
-        </button>
+        {H_TAG.map((value) => {
+          return (
+            <button onClick={handleChangeTextOption} key={value.id}>
+              <div className="hTagWrap">
+                <div className="hTitle">
+                  H <span className="hNumber">{value.number}</span>
+                </div>
+              </div>
+            </button>
+          );
+        })}
       </HTag>
 
       <Border />
 
       <Font>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">B</div>
-          </div>
-        </button>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">B</div>
-          </div>
-        </button>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">B</div>
-          </div>
-        </button>
+        {FONT_TAG.map((font) => {
+          return (
+            <button key={font.id}>
+              <div className="hTagWrap">
+                <div className="hTitle">{font.label}</div>
+              </div>
+            </button>
+          );
+        })}
       </Font>
 
       <Border />
 
       <ETC>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">C</div>
-          </div>
-        </button>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">U</div>
-          </div>
-        </button>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">F</div>
-          </div>
-        </button>
-        <button>
-          <div className="hTagWrap">
-            <div className="hTitle">K</div>
-          </div>
-        </button>
+        {ETC_TAG.map((etc) => {
+          return (
+            <button key={etc.id}>
+              <div className="hTagWrap">
+                <div className="hTitle">{etc.label}</div>
+              </div>
+            </button>
+          );
+        })}
       </ETC>
     </IconsContainer>
   );
@@ -191,3 +164,22 @@ const ETC = styled.div`
 `;
 
 export default Icons;
+
+const H_TAG = [
+  { id: 1, number: 1 },
+  { id: 2, number: 2 },
+  { id: 3, number: 3 },
+];
+
+const FONT_TAG = [
+  { id: 1, label: "B" },
+  { id: 2, label: "B" },
+  { id: 3, label: "B" },
+];
+
+const ETC_TAG = [
+  { id: 1, label: "A" },
+  { id: 2, label: "C" },
+  { id: 3, label: "D" },
+  { id: 4, label: "K" },
+];
